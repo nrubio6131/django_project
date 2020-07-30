@@ -1,0 +1,34 @@
+<html lang="es" dir="ltr">
+    <head>
+        <META CHARSET=ISO-8859-1>
+        <TITLE>An applicati&oacute;n with a long head</TITLE>
+    </head>
+    <body>
+        <h2>
+            Prueba de plantillas llamando elementos e importando desde el metodo loader
+       </h2>
+        <p>Este texto ha sido creado desde una plantilla con variables</p>
+            <p>El nombré que se trae por variables es {{nombre}} {{apellido}}</p>
+            <p>La fecha actual es: {{fecha.day}}/{{fecha.month}}/{{fecha.year}}</p>
+            <p>Traer los nombres y apellidos por medio de la programcion orientada a objetos 
+                {{persona.nombres}} {{persona.apellidos}}</p>
+            <p>objetos pc {{partes_pc}}</p>
+            <p>Lista de peizas de un pc con formato HTML</p>
+            <p>
+                {% if partes_pc%}
+                    <ul>
+                        {% for parte in partes_pc %}
+
+                            <li>{{parte.upper}}</li>
+
+                        {% endfor %}
+                    </ul>
+                {%else%}
+
+                    <p><strong>No hay partes que mostrar</strong></p>
+
+                {%endif%}
+            </p>
+    </body>
+</html>
+    

@@ -1,6 +1,14 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template.loader import get_template
+
+class Persona(object):
+        def __init__(self,nombres,apellidos):
+
+            self.nombres=nombres
+
+            self.apellidos=apellidos
 
 def inicio(request):
 
@@ -29,17 +37,29 @@ def MetodoGet(request,v1,v2):
     """.format(v1,v2))
 
 def vista(request):
-#para cargar el template
-    doc_externo=open('D:/OneDrive - Universidad de San Buenaventura - Bogota/nick/Repositorios/django_project/proyecto1/proyecto1/templates/fst_template.html')
-#crear el objeto tipo template
-    tmplt=Template(doc_externo.read())
-#se cierra la comunicacion una vezx cargado el template
-    doc_externo.close()
-#se cera un contexto
-    ctx=Context()
-#se renderiza el objeto creado
-    doc=tmplt.render(ctx)
-#se imporime el objeto renderizado, para mostrar el contenido del template, de lo contrario retornara none
+
+    tmplt=get_template('fst_template.html')
+    doc=tmplt.render()
     return(HttpResponse(doc))
 
+def vista_con_parametros(request):
+    nombre='Nicolás'
+    apellido='Rubio'
+    fecha=datetime.datetime.now()
+    prueba_objeto=Persona("Nicolas Emilio","Rubio Aparicio")
+    lista=['torre',
+    'fuente',
+    'monitor',
+    'tecaldo',
+    'mouse',
+    'targeta madre',
+    'procesador',
+    'targeta grafica',
+    'memoria ram',
+    'disco duro']
 
+    tmplt=get_template('template_variables.html')
+    ctx={"nombre":nombre, "apellido":apellido, "fecha":fecha, "persona":prueba_objeto,"partes_pc":lista}
+    doc=tmplt.render(ctx)
+
+    return(HttpResponse(doc))
