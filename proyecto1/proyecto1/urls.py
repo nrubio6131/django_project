@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from proyecto1.views import inicio, fin, fecha, MetodoGet, vista, vista_con_parametros
+from proyecto1.views import inicio, fin, fecha, MetodoGet, vista, vista_con_parametros, video, plantilla_hija_2
 
 urlpatterns = [ 
     path('admin/', admin.site.urls),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('MetodoGet/<int:v1>/<v2>/',MetodoGet),
     path('vista/',vista),
     path('vista_con_parametros/',vista_con_parametros),
+    path('video/',video),
+    path('plantilla_hija_2/',plantilla_hija_2),
 ]

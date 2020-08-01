@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 from django.template.loader import get_template
+from django.shortcuts import render
 
 class Persona(object):
         def __init__(self,nombres,apellidos):
@@ -38,9 +39,7 @@ def MetodoGet(request,v1,v2):
 
 def vista(request):
 
-    tmplt=get_template('fst_template.html')
-    doc=tmplt.render()
-    return(HttpResponse(doc))
+    return render(request,'fst_template.html')
 
 def vista_con_parametros(request):
     nombre='Nicolás'
@@ -58,8 +57,18 @@ def vista_con_parametros(request):
     'memoria ram',
     'disco duro']
 
-    tmplt=get_template('template_variables.html')
+    #tmplt=get_template('template_variables.html')
     ctx={"nombre":nombre, "apellido":apellido, "fecha":fecha, "persona":prueba_objeto,"partes_pc":lista}
-    doc=tmplt.render(ctx)
+    #doc=tmplt.render(ctx)
+    #return(HttpResponse(doc))
+    return render (request,'template_variables.html',ctx)
 
-    return(HttpResponse(doc))
+def video(request):
+    creador = Persona("Nicolas Emilio","Rubio Aparicio")
+    ctx={"creador":creador}
+    return render(request,'videos.html',ctx)
+
+def plantilla_hija_2(request):
+    creador = Persona("Pepito","Peréz")
+    ctx={"creador":creador}
+    return render(request,'plantilla_hija_2.html',ctx)

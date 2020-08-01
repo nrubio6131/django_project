@@ -1,0 +1,35 @@
+<html>
+    <style>
+
+       body{
+            background-color: gold;
+       }
+       #fondo_rojo{
+            background-color:firebrick;
+            text-align: center;
+            color: honeydew;
+       }
+
+
+    </style>
+    <head>
+
+        <title>
+            {% block title %} {% endblock %}
+        </title>
+
+    </head>
+
+    <body>
+
+        <h1 id="fondo_rojo">Plantilla cusro django</h1>
+        {% include "superior/menu.html" %}
+        <h3>prueba de plantilla con herencias</h3>
+
+        {%block content%} {% endblock %}
+
+        <p id="fondo_rojo">creado por {{ creador.nombres }} {{creador.apellidos}} del curso Pildoras Informaticas</p>
+
+    </body>
+
+</html>
