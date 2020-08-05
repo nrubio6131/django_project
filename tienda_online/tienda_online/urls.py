@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from primer_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('formulario/', views.formulario),
+    path('envio_datos/', views.envio_datos),
 ]

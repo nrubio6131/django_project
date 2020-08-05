@@ -33,5 +33,5 @@ class prueba (models.Model):
     colum3= models.CharField(max_length=50)
 
     def __str__(self):
-        return 'id={},{},{},{}'.format(self.id,self.colum1,self.colum2,self.colum3)
+        return 'id={},{},{}'.format(self.colum1,self.colum2,self.colum3)
 # Create your models here.

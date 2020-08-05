@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Resultado de la primera busqueda</title>
+    </head>
+    <body>
+        <p>La busqeuda fue de: <strong> {{nombre}} </strong></p>
+        {% if  personas%}
+        <ul>
+            {% for persona in personas %}
+            <li>
+
+                {{persona.nombre}} &nbsp; {{persona.apellido}} &nbsp;
+                {{persona.profesion}} &nbsp; {{persona.correo}} &nbsp;
+                {{persona.edad}} &nbsp; {{persona.fecha_creacion}} &nbsp;
+                {{persona.activo}}
+
+            </li>
+            {% endfor %}
+        {% else %}
+            <p>No se encontró nada</p>
+        {% endif %}
+
+        </ul>
+    </body>
+</html>
