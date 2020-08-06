@@ -34,4 +34,5 @@ class prueba (models.Model):
 
     def __str__(self):
         return 'id={},{},{}'.format(self.colum1,self.colum2,self.colum3)
+
 # Create your models here.

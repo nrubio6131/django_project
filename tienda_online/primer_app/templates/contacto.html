@@ -1,0 +1,18 @@
+<html>
+
+<head>
+    <title>Formulario de contacto</title>
+</head>
+
+<body>
+    
+    <p>esto es una prueba {{token}}</p>
+    <form action="/contacto/" method="post">{% csrf_token %}
+        <p><input type="text" name="asunto" id="asunto"></p>
+        <p><input type="email" name="email" id="email"></p>
+        <p><textarea name="motivos" id="motivos" cols="30" rows="10"></textarea></p>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
