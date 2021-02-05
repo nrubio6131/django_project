@@ -1,2 +1,2 @@
 # django_project
-repo
+clonando el repositorio por medio de SSH a escritorio local
